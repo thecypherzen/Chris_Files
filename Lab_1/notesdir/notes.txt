@@ -1,0 +1,16 @@
+-> It is the most used data visualisatino package in python.
+-> first import:
+	import matplotlib.pyplot as plt
+	import numpy as np
+
+-> Generate random numbers:
+	x_data = np.random.random(50)
+-> Generate Scatterplot:
+	-> Generate x and y point values:
+		x_axis = np.random.random(n) #generated object is a numpy array
+		y_axis = np.rnadom.random(n)
+	-> crate graph:
+		plt.scatter(x_axis, y_axis)
+
+-> Get a normally distributed data set
+	values = np.normal(20:mean, 1.5:std_deviation, 50:total_values)

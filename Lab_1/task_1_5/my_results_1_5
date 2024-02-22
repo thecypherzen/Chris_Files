@@ -1,0 +1,9 @@
+PERCENTAGES SUMMARY:
+f>2: 54.76
+f=2: 13.77
+f=1: 31.47
+
+WORDS COUNT SUMMARY:
+Brown.txt: Found: 770389 | Missing: 244027
+Shake.txt: Found: 707224 | Missing: 250375
+Bible.txt: Found: 627738 | Missing: 161897
