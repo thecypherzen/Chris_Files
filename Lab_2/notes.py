@@ -74,19 +74,33 @@ words_list = [ "Classfy", "Classfication", "Classes", \
 #	{sentiment_rating(score)}")
 
 # 4. Word meanings and definitions
-from nltk.corpus import wordnet
+#from nltk.corpus import wordnet
 
-m_word = "computer"
-try:
-	synsets = wordnet.synsets(m_word)
-	if synsets:
-		for synset in synsets:
-			for i, _ in enumerate(synset):
-				name = synset[i].name()
-				meaning = synset[i].definition()
-				print(f"{name}\tDef: {meaning}")
-	else:
-		print("no definition found")
-except Exception as e:
-	print(str(e))
+#m_word = "computer"
+#try:
+#	synsets = wordnet.synsets(m_word)
+#	if synsets:
+#		for synset in synsets:
+#			lemmas = synset.lemmas()
+#			name = "Unknown Title" if not lemmas else lemmas[0].name()
+#			meaning = synset.definition()
+#			print(f"{name}: {meaning}")
+#	else:
+#		print("no definition found")
+#except Exception as e:
+#	print(str(e))
+
+import sys, os
+out_file = open(".logfile", 'w+')
+sys.stdout = out_file
+
+from nltk.book import text1
+out_file.close()
+
+sys.stdout = sys.__stdout__
+
+if os.path.exists(".logfile"):
+	os.remove(".logfile")
+
+print(text1[:20])
 # part of speech tagging

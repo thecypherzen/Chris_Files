@@ -1,0 +1,68 @@
+NLTK POS tag list:
+
+CC	coordinating conjunction
+CD	cardinal digit
+DT	determiner
+EX	existential there (like: "there is" ... think of it like "there exists")
+FW	foreign word
+IN	preposition/subordinating conjunction
+JJ	adjective	'big'
+JJR	adjective, comparative	'bigger'
+JJS	adjective, superlative	'biggest'
+LS	list marker	1
+MD	modal	could, will
+NN	noun, singular 'desk'
+NNS	noun plural	'desks'
+NNP	proper noun, singular	'Harrison'
+NNPS	proper noun, plural	'Americans'
+PDT	predeterminer	'all the kids'
+POS	possessive ending	parent\'s
+PRP	personal pronoun	I, he, she
+PRP$	possessive pronoun	my, his, hers
+RB	adverb	very, silently,
+RBR	adverb, comparative	better
+RBS	adverb, superlative	best
+RP	particle	give up
+TO	to	go 'to' the store.
+UH	interjection	errrrrrrrm
+VB	verb, base form	take
+VBD	verb, past tense	took
+VBG	verb, gerund/present participle	taking
+VBN	verb, past participle	taken
+VBP	verb, sing. present, non-3d	take
+VBZ	verb, 3rd person sing. present	takes
+WDT	wh-determiner	which
+WP	wh-pronoun	who, what
+WP$	possessive wh-pronoun	whose
+WRB	wh-abverb	where, when
+
+
+
+The concordance() method can be used to find all occurrences of a word or phrase within a text sample.
+text1.concordance('the')
+
+similar(): Finds words that are similar to a given word based on their context.
+text1.similar('the')
+
+
+common_contexts(): Finds the contexts in which two words appear together.
+Example Usage of common_contexts()
+# Find common contexts of 'the' and 'and' in text1
+text1.common_contexts(['the', 'and'])
+
+dispersion_plot(): Creates a dispersion plot of a word, showing how its frequency changes across the text.
+text1.dispersion_plot(['the'])
+
+collocations(): Finds collocations (words that frequently occur together) in the text.
+text1.collocations()
+
+plot(word): Creates a plot of the frequency of a word in the text.
+# Create a plot of the frequency of the word 'the' in text1
+text1.plot('the')
+
+plot(word, n): Creates a plot of the frequency of a word in the text, showing the n most common words.
+# Create a plot of the frequency of the  10 most common words in text1
+text1.plot(n=10)
+
+plot(word, n, collocations=True): Creates a plot of the frequency of a word in the text, showing the n most common words and their collocations.
+text1.plot(n=10, collocations=True)
