@@ -6,6 +6,8 @@
 
 
 import sys, os
+from matplotlib import pyplot as plt
+from nltk.portability import FreqDist
 
 # redirect initial messages out of stdout and import texts
 tempf = open(".tempf", 'w+')
@@ -76,8 +78,30 @@ def get_similar_words(word=None, name=None, fn="results", clear=True):
 
 
 # using frequency plot() method
-def frequent_n_plots(text=None, n=20, fn="results", clear=True):
-    if text is no
+def plot_n_words(text_id, n=20):
+    f_dist = FreqDist(texts[text_id])
+    f_dist = dict(sorted((item for item in f_dist.items() \
+                          if item[0].isalpha()), reverse=True, \
+                         key=lambda item: item[1]))
+    x_points = [i for i in range(1, n+1)][ :n+1]
+    y_points = [count for count in f_dist.values()][ :n+1]
+    x_ticks = [word for word in f_dist.keys()][ :n+1]
+
+    plt.bar(x_points, y_points, color="#355f3b")
+    plt.xlabel("Words")
+    plt.ylabel("Frequency")
+    plt.xticks(x_points, x_ticks]
+    plt.title(f"Chart of {n} Most Frequent Words in {text_id}")
+    plt.savefig(f"freq_{n}_words_{text_id}_fig")
+
+
+def frequent_n_plots(name=None, n=20, fn="results", clear=True):
+    if name is not None and not isinstance(name, str):
+        return
+    if name is None:
+        for key, _ in texts.keys():
+            plot_n_words(key, n)
+
     with open(fn, 'a+') as stream:
         with open(".tmp", 'w+') as tmp:
             sys.stdout = tmp
