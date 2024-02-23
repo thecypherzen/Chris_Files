@@ -76,7 +76,7 @@ def get_similar_words(word=None, name=None, fn="results", clear=True):
     # delimit and print to file
     message = "\n".join(message)
     with open(fn, 'a+') as res_file:
-        print(message, file=res_file)
+        print(message, file=res_file, end="\n\n")
         for i in range(1,81):
             print("=", file=res_file, end="\n" if i == 80 else "")
 
