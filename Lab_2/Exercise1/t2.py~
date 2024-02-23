@@ -1,5 +1,0 @@
-#!/usr/bin/env python3
-
-m_dict = {"this": 2, "therefore": 10, "alias": 94, "crazy": 5}
-s_dict = dict(sorted(m_dict.items(), reverse=True, key=lambda tup: tup[1]))
-print(s_dict)
