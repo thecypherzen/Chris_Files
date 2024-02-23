@@ -7,7 +7,7 @@
 
 import sys, os
 from matplotlib import pyplot as plt
-from nltk.portability import FreqDist
+from nltk.probability import FreqDist
 
 # redirect initial messages out of stdout and import texts
 tempf = open(".tempf", 'w+')
@@ -83,14 +83,14 @@ def plot_n_words(text_id, n=20):
     f_dist = dict(sorted((item for item in f_dist.items() \
                           if item[0].isalpha()), reverse=True, \
                          key=lambda item: item[1]))
-    x_points = [i for i in range(1, n+1)][ :n+1]
-    y_points = [count for count in f_dist.values()][ :n+1]
-    x_ticks = [word for word in f_dist.keys()][ :n+1]
+    x_points = [i for i in range(1, n+1)]
+    y_points = [count for count in f_dist.values()][ :n]
+    x_ticks = [word for word in f_dist.keys()][ :n]
 
     plt.bar(x_points, y_points, color="#006400")
     plt.xlabel("Words")
     plt.ylabel("Frequency")
-    plt.xticks(x_points, x_ticks]
+    plt.xticks(x_points, x_ticks)
     plt.title(f"Chart of {n} Most Frequent Words in {text_id}")
     plt.savefig(f"freq_{n}_words_{text_id}_fig")
 
@@ -100,15 +100,15 @@ def frequent_n_plots(name=None, n=20):
         print(f"{type(name)} not supported")
         return
     if name is None:
-        for key, _ in texts.keys():
+        for key in texts.keys():
             plot_n_words(key, n)
     elif name not in texts.keys():
-        print(f"text '{name}' unknown"}
         return
-    plot_n_words(name, n)
+    else:
+        plot_n_words(name, n)
 
 def main():
-    words = ["always", "forever", "ancient"]
+    words = ["government", "pleasure", "holy", "things"]
     for word in words:
         get_similar_words(word)
     frequent_n_plots(n=10)
