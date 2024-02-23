@@ -7,5 +7,7 @@ from nltk.probability import FreqDist
 word = "this"
 freqDist = FreqDist(text1)
 word_freq = freqDist[word]
-plt.plot(word_freq)
+x = [1]
+y = [word_freq]
+plt.plot(x, y, label=word)
 plt.savefig("text1_plot_this")
