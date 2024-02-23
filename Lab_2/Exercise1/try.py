@@ -19,7 +19,7 @@ print(words)
 print(x_points)
 print(y_points)
 
-plt.plot(x_points, y_points, color="#355E3B", label=words)
+plt.bar(x_points, y_points, color="#355E3B", width=0.5, label=words)
 plt.xlabel("Words")
 plt.ylabel("Frequency")
 plt.savefig("first_n_fequency")
