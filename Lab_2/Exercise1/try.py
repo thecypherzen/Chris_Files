@@ -11,7 +11,7 @@ word_freq = freqDist[word]
 x = [1]
 y = [word_freq]
 print(x, y)
-plt.bar(x, y, color="#355E3B", width=0.2)
+plt.bar(x, y, color="#355E3B", width=0.5)
 plt.xlabel(word)
 #plt.gca().xaxis.set_major_locator(MultipleLocator(0.5))
 plt.ylabel("Frequency")
