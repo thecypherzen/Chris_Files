@@ -87,7 +87,7 @@ def plot_n_words(text_id, n=20):
     y_points = [count for count in f_dist.values()][ :n+1]
     x_ticks = [word for word in f_dist.keys()][ :n+1]
 
-    plt.bar(x_points, y_points, color="#355f3b")
+    plt.bar(x_points, y_points, color="#006400")
     plt.xlabel("Words")
     plt.ylabel("Frequency")
     plt.xticks(x_points, x_ticks]
@@ -95,29 +95,22 @@ def plot_n_words(text_id, n=20):
     plt.savefig(f"freq_{n}_words_{text_id}_fig")
 
 
-def frequent_n_plots(name=None, n=20, fn="results", clear=True):
+def frequent_n_plots(name=None, n=20):
     if name is not None and not isinstance(name, str):
+        print(f"{type(name)} not supported")
         return
     if name is None:
         for key, _ in texts.keys():
             plot_n_words(key, n)
-
-    with open(fn, 'a+') as stream:
-        with open(".tmp", 'w+') as tmp:
-            sys.stdout = tmp
-            texts[text].common_contexts(word)
-            tmp.seek(0)
-            c_contexts = tmp.read()
-            os.remove(str(tmp.name))
-            sys.stdout = sys.__stdout__
-
-        message = f"{text}: Common Contexts to {word}:\n{c_contexts}"
-        print(message, file=stream)
+    elif name not in texts.keys():
+        print(f"text '{name}' unknown"}
+        return
+    plot_n_words(name, n)
 
 def main():
     words = ["always", "forever", "ancient"]
     for word in words:
         get_similar_words(word)
-
+    frequent_n_plots(n=10)
 if __name__ == "__main__":
     main()
