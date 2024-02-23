@@ -2,7 +2,7 @@
 from nltk.book import text1
 from matplotlib import pyplot as plt
 from nltk.probability import FreqDist
-from matplotlib.ticker import MultipleLocator
+#from matplotlib.ticker import MultipleLocator
 
 # words = ["the", "and"]
 word = "this"
@@ -11,8 +11,8 @@ word_freq = freqDist[word]
 x = [1]
 y = [word_freq]
 print(x, y)
-plt.bar(x, y, color="#355E3B")
+plt.bar(x, y, color="#355E3B", width=0.2)
 plt.xlabel(word)
-plt.gca().xaxis.set_major_locator(MultipleLocator(0.5))
+#plt.gca().xaxis.set_major_locator(MultipleLocator(0.5))
 plt.ylabel("Frequency")
 plt.savefig("text1_plot_this")
