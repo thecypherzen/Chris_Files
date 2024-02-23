@@ -9,5 +9,8 @@ freqDist = FreqDist(text1)
 word_freq = freqDist[word]
 x = [1]
 y = [word_freq]
-plt.plot(x, y, label=word)
+print(x, y)
+plt.bar(x, y, color="#00ff00")
+plt.xlabel(word)
+plt.ylabel("Frequency")
 plt.savefig("text1_plot_this")
