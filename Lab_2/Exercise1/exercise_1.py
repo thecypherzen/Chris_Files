@@ -36,7 +36,11 @@ def generate_similar(text, word):
         sys.stdout = tmp
         text.similar(word)
         tmp.seek(0)
-        content = tmp.read().split()
+        content = tmp.read()
+        if content == "No matches\n":
+            content = []
+        else:
+            content = content.split()
         os.remove(tmp.name)
         sys.stdout = sys.__stdout__
     return ", ".join(content)
@@ -111,6 +115,6 @@ def main():
     words = ["government", "pleasure", "holy", "things"]
     for word in words:
         get_similar_words(word)
-    frequent_n_plots(n=10)
+#    frequent_n_plots(n=10)
 if __name__ == "__main__":
     main()
